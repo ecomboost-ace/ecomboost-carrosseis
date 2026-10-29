@@ -1,8 +1,8 @@
-https://res.cloudinary.com/rlz9umtr/image/upload/v1793292193/001-nespresso-slide-01.jpg
-https://res.cloudinary.com/rlz9umtr/image/upload/v1793292194/001-nespresso-slide-02.jpg
-https://res.cloudinary.com/rlz9umtr/image/upload/v1793292195/001-nespresso-slide-03.jpg
-https://res.cloudinary.com/rlz9umtr/image/upload/v1793292195/001-nespresso-slide-04.jpg
-https://res.cloudinary.com/rlz9umtr/image/upload/v1793292196/001-nespresso-slide-05.jpg
-https://res.cloudinary.com/rlz9umtr/image/upload/v1793292197/001-nespresso-slide-06.jpg
-https://res.cloudinary.com/rlz9umtr/image/upload/v1793292198/001-nespresso-slide-07.jpg
-https://res.cloudinary.com/rlz9umtr/image/upload/v1793292198/001-nespresso-slide-08.jpg
+https://res.cloudinary.com/rlz9umtr/image/upload/v1793300955/001-nespresso-v2-slide-01.jpg
+https://res.cloudinary.com/rlz9umtr/image/upload/v1793300956/001-nespresso-v2-slide-02.jpg
+https://res.cloudinary.com/rlz9umtr/image/upload/v1793300957/001-nespresso-v2-slide-03.jpg
+https://res.cloudinary.com/rlz9umtr/image/upload/v1793300957/001-nespresso-v2-slide-04.jpg
+https://res.cloudinary.com/rlz9umtr/image/upload/v1793300958/001-nespresso-v2-slide-05.jpg
+https://res.cloudinary.com/rlz9umtr/image/upload/v1793300959/001-nespresso-v2-slide-06.jpg
+https://res.cloudinary.com/rlz9umtr/image/upload/v1793300959/001-nespresso-v2-slide-07.jpg
+https://res.cloudinary.com/rlz9umtr/image/upload/v1793300960/001-nespresso-v2-slide-08.jpg
