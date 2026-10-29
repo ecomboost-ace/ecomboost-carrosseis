@@ -4,8 +4,9 @@ Instruções para a tarefa agendada que roda nos dias úteis. Leia também o `RE
 
 ## Antes de começar
 
-1. `npm ci` na raiz do repositório.
-2. Leia a aba **Pautas** da planilha `1YZMqSz3HYhZOG6BWbobZTBLwYE9DaX0DG1cmmDEoboA` (intervalo `Pautas!A:P`) com o conector do Google Sheets.
+1. Trabalhe na branch `claude/carrosseis`, que guarda todos os carrosséis produzidos: `git fetch origin claude/carrosseis && git checkout -B claude/carrosseis origin/claude/carrosseis`. Se a branch ainda não existir, crie a partir de `main`: `git checkout -B claude/carrosseis origin/main`.
+2. `npm ci` na raiz do repositório.
+3. Leia a aba **Pautas** da planilha `1YZMqSz3HYhZOG6BWbobZTBLwYE9DaX0DG1cmmDEoboA` (intervalo `Pautas!A:P`) com o conector do Google Sheets.
 
 Colunas: A ID · B Data · C Horário · D Linha · E Tema · F Ângulo / gancho · G Marca citada · H Isca · I Palavra-chave · J Status · K Prévia · L Legenda · M Imagens (URLs JPG, uma por linha) · N Comentários da aprovação · O Link do post · P Publicado em. As colunas Q e R são fórmulas: nunca escreva nelas.
 
@@ -43,7 +44,7 @@ Ao começar uma linha, mude o status para `Em produção`.
    - N: acrescente no fim (sem apagar o que já existe) `Ajustado em DD/MM HH:mm: <o que mudou>.` ou `Produzido em DD/MM HH:mm.`
    - J: `Aguardando aprovação`
    - Se a linha não tiver data ou horário, deixe em branco e avise na coluna N.
-9. **Git**: commit da pasta do carrossel e `git push origin main`.
+9. **Git**: commit da pasta do carrossel e `git push origin claude/carrosseis`.
 
 ## Se algo falhar
 
