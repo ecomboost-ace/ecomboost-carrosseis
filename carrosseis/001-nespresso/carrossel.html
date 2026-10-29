@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<style>
+@font-face{font-family:"Playfair";src:url(../../node_modules/@fontsource/playfair-display/files/playfair-display-latin-600-normal.woff2);font-weight:600}
+@font-face{font-family:"Playfair";src:url(../../node_modules/@fontsource/playfair-display/files/playfair-display-latin-700-normal.woff2);font-weight:700}
+@font-face{font-family:"Playfair";src:url(../../node_modules/@fontsource/playfair-display/files/playfair-display-latin-800-normal.woff2);font-weight:800}
+@font-face{font-family:"Playfair";src:url(../../node_modules/@fontsource/playfair-display/files/playfair-display-latin-600-italic.woff2);font-weight:600;font-style:italic}
+@font-face{font-family:"Playfair";src:url(../../node_modules/@fontsource/playfair-display/files/playfair-display-latin-700-italic.woff2);font-weight:700;font-style:italic}
+@font-face{font-family:"Inter";src:url(../../node_modules/@fontsource/inter/files/inter-latin-400-normal.woff2);font-weight:400}
+@font-face{font-family:"Inter";src:url(../../node_modules/@fontsource/inter/files/inter-latin-500-normal.woff2);font-weight:500}
+@font-face{font-family:"Inter";src:url(../../node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2);font-weight:600}
+@font-face{font-family:"Inter";src:url(../../node_modules/@fontsource/inter/files/inter-latin-700-normal.woff2);font-weight:700}
+
+:root{
+  --em-950:#041C15; --em-900:#06261D; --em-800:#0B3D2E; --em-600:#14573F;
+  --gold:#C9A54C; --gold-lt:#E6CD86; --cream:#F3EDE0; --ink:#0E1F19;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#222;display:flex;flex-direction:column;gap:40px;padding:40px;align-items:center}
+.slide{width:1080px;height:1350px;position:relative;overflow:hidden;background:var(--em-900);color:var(--cream);font-family:Inter,sans-serif}
+.serif{font-family:Playfair,serif}
+/* tipografia: evita palavras viúvas */
+h1,h2,.punch,.wow,.turn,.sub,.step b{text-wrap:balance}
+.row>span:last-child,.tl span{text-wrap:pretty}
+p,.t,.lead{text-wrap:pretty}
+.gold{color:var(--gold)}
+em{font-style:italic;color:var(--gold-lt)}
+
+/* chrome: topo e rodapé fixos em todos os slides */
+.top{position:absolute;top:56px;left:72px;right:72px;display:flex;justify-content:space-between;align-items:center;z-index:5;font-size:22px;letter-spacing:.18em;text-transform:uppercase;font-weight:600}
+.brand{font-family:Playfair,serif;letter-spacing:.06em;text-transform:none;font-size:30px;font-weight:700;color:var(--gold)}
+.brand span{color:var(--cream)}
+.handle{color:var(--cream);opacity:.75;letter-spacing:.06em;text-transform:none;font-weight:500}
+.foot{position:absolute;bottom:56px;left:72px;right:72px;display:flex;justify-content:space-between;align-items:center;z-index:5;font-size:22px;font-weight:600;letter-spacing:.12em}
+.dots{display:flex;gap:10px}
+.dots i{display:block;width:34px;height:4px;border-radius:2px;background:currentColor;opacity:.25}
+.dots i.on{opacity:1;background:var(--gold)}
+.light .top .brand span,.light .handle,.light .foot{color:var(--ink)}
+
+.kicker{display:inline-block;border:2px solid var(--gold);color:var(--gold);border-radius:999px;padding:12px 26px;font-size:22px;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+.photo{position:absolute;inset:0;background-size:cover;background-position:center}
+.grain::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);background-size:4px 4px;mix-blend-mode:overlay}
+
+/* palco: produto recortado sobre verde com brilho dourado */
+.stage{position:absolute;left:0;right:0;top:0;height:820px;background:radial-gradient(55% 50% at 50% 48%,rgba(201,165,76,.30),rgba(6,38,29,0) 70%),linear-gradient(180deg,var(--em-800) 0%,var(--em-900) 100%)}
+.stage img,.s1 .cutouts img{position:absolute;filter:drop-shadow(0 40px 45px rgba(0,0,0,.55))}
+.credit{font-size:17px;font-weight:500;letter-spacing:.06em;opacity:.5;text-transform:none}
+
+/* ícones (lucide, injetados no build) */
+.ic{display:inline-flex;width:34px;height:34px;color:var(--gold);flex:none}
+.ic svg{width:100%;height:100%}
+
+/* linhas escaneáveis: ícone + texto */
+.rows{display:flex;flex-direction:column;gap:20px;margin-top:6px}
+.row{display:flex;align-items:center;gap:24px;font-size:31px;line-height:1.3;color:var(--cream)}
+.row .bub{width:66px;height:66px;border-radius:50%;border:1.5px solid rgba(201,165,76,.55);background:rgba(201,165,76,.08);display:flex;align-items:center;justify-content:center;flex:none}
+.row b{color:var(--gold-lt);font-weight:600}
+
+/* 1 capa: foto publicitária em tela cheia */
+.s1 .photo{background:url(img/n_caixa.jpg) left top/100% auto no-repeat;top:-170px;bottom:auto;height:1350px}
+.s1{background:var(--em-950)}
+.s1 .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,28,21,.8) 0%,rgba(4,28,21,0) 15%,rgba(4,28,21,0) 50%,rgba(4,28,21,.9) 64%,var(--em-950) 76%)}
+.s1 .content{position:absolute;left:72px;right:72px;bottom:150px;z-index:4}
+.s1 h1{font-family:Playfair,serif;font-weight:800;font-size:80px;line-height:1.03;letter-spacing:-.01em;margin:28px 0 22px}
+.s1 h1 em{font-weight:700}
+.s1 .sub{font-family:Playfair,serif;font-style:italic;font-size:40px;color:var(--cream);opacity:.85}
+
+/* layout foto em cima + texto embaixo */
+.split .pic{position:absolute;left:0;right:0;top:0;height:820px;background-size:cover;background-position:center}
+.split .pic::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,28,21,.75) 0%,rgba(4,28,21,0) 22%,rgba(6,38,29,0) 50%,rgba(6,38,29,.88) 80%,var(--em-900) 100%)}
+.split .body{position:absolute;left:72px;right:72px;bottom:140px;z-index:4}
+.split h2{font-family:Playfair,serif;font-weight:800;font-size:70px;line-height:1.05;margin:24px 0 30px}
+
+/* 2 a conta */
+.s2 .tag{position:absolute;right:130px;top:230px;background:var(--gold);color:var(--em-950);font-family:Playfair,serif;font-weight:800;font-size:44px;padding:14px 30px;border-radius:999px;box-shadow:0 20px 40px rgba(0,0,0,.35)}
+.calc{border-top:1px solid rgba(201,165,76,.4)}
+.calc div{display:flex;align-items:center;gap:22px;padding:16px 0;border-bottom:1px solid rgba(201,165,76,.25);font-size:31px}
+.calc div .val{margin-left:auto;font-family:Playfair,serif;font-weight:700;font-size:40px}
+.calc .hl .val{color:var(--gold);font-size:52px}
+.calc .ic{width:38px;height:38px}
+.punch{margin-top:30px;font-family:Playfair,serif;font-style:italic;font-size:44px;color:var(--gold-lt);line-height:1.2}
+
+/* 3 história: linha do tempo */
+.s3{background:var(--cream);color:var(--ink)}
+.s3 .year{position:absolute;right:-30px;top:110px;font-family:Playfair,serif;font-weight:800;font-size:420px;line-height:1;color:var(--em-800);opacity:.07}
+.s3 .body{position:absolute;left:72px;right:72px;top:170px}
+.s3 .kicker{border-color:var(--em-800);color:var(--em-800)}
+.s3 h2{font-family:Playfair,serif;font-weight:800;font-size:80px;line-height:1.04;margin:28px 0 44px;color:var(--em-900)}
+.s3 h2 em{color:var(--gold)}
+.tl{display:grid;grid-template-columns:repeat(4,1fr);position:relative}
+.tl::before{content:"";position:absolute;left:22px;right:22px;top:21px;height:2px;background:linear-gradient(90deg,#b9473a 0%,var(--gold) 30%,var(--gold) 100%)}
+.tl div{position:relative;padding-right:18px}
+.tl i.dot{display:block;width:44px;height:44px;border-radius:50%;background:var(--em-900);border:3px solid var(--gold);margin-bottom:20px;position:relative}
+.tl .bad i.dot{border-color:#b9473a}
+.tl b{display:block;font-family:Playfair,serif;font-size:44px;color:var(--em-900);line-height:1}
+.tl span{display:block;font-size:24px;line-height:1.3;color:#3b4943;margin-top:8px}
+.tl .bad b{color:#b9473a}
+.s3 .turn{margin-top:40px;background:var(--em-900);color:var(--cream);border-radius:28px;padding:34px 40px;font-family:Playfair,serif;font-size:40px;line-height:1.25;text-wrap:balance}
+.s3 .turn b{color:var(--gold);font-weight:700}
+.s3 .vint{position:absolute;left:72px;right:72px;bottom:140px;height:270px;border-radius:28px;background:url(img/n_cozinha.jpg) 40% center/cover}
+.s3 .vint span{position:absolute;left:24px;bottom:20px;background:rgba(4,28,21,.8);color:var(--gold-lt);font-size:22px;font-weight:600;letter-spacing:.14em;padding:10px 18px;border-radius:999px}
+
+/* 4, 5, 6 pilares */
+.s4 .pic{background-image:url(img/n_dua_nuvens.jpg);background-position:center 30%}
+.s6 .pic{background-image:url(img/n_casa.jpg);background-position:62% center}
+.pillar{display:flex;align-items:center;gap:18px}
+.pillar .n{width:64px;height:64px;border-radius:50%;background:var(--gold);color:var(--em-950);font-family:Playfair,serif;font-weight:800;font-size:34px;display:flex;align-items:center;justify-content:center}
+.wow{margin-top:30px;border-left:4px solid var(--gold);padding:6px 0 6px 28px;font-family:Playfair,serif;font-style:italic;font-size:38px;line-height:1.25;color:var(--gold-lt)}
+
+/* 7 framework visual */
+.s7{background:var(--cream);color:var(--ink)}
+.s7 .thumb{position:absolute;right:72px;top:150px;width:250px;height:250px;border-radius:50%;background:url(img/n_marmore.jpg) center/cover;border:6px solid #fff;box-shadow:0 20px 40px rgba(0,0,0,.18)}
+.s7 .head{position:absolute;left:72px;right:360px;top:170px}
+.s7 .kicker{border-color:var(--em-800);color:var(--em-800)}
+.s7 h2{font-family:Playfair,serif;font-weight:800;font-size:68px;line-height:1.05;color:var(--em-900);margin-top:24px}
+.s7 h2 em{color:var(--gold)}
+.steps{position:absolute;left:72px;right:72px;top:480px;display:flex;flex-direction:column;gap:34px}
+.step{display:flex;gap:30px;align-items:flex-start;background:#FBF8F1;border:1.5px solid rgba(11,61,46,.12);border-radius:30px;padding:36px 36px;position:relative}
+.step + .step::before{content:"";position:absolute;left:80px;top:-35px;width:2px;height:34px;background:var(--gold)}
+.step .bub{width:90px;height:90px;border-radius:24px;background:var(--em-900);display:flex;align-items:center;justify-content:center;flex:none}
+.step .bub .ic{width:46px;height:46px}
+.step small{display:block;font-size:20px;font-weight:700;letter-spacing:.18em;color:var(--gold);text-transform:uppercase}
+.step b{display:block;font-family:Playfair,serif;font-size:40px;line-height:1.1;color:var(--em-900);margin:6px 0 14px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chips span{font-size:22px;font-weight:600;border-radius:999px;padding:9px 18px}
+.chips .n{background:var(--em-900);color:var(--gold-lt)}
+.chips .y{border:1.5px solid var(--gold);color:#7a5f1c}
+
+/* 8 CTA */
+.s8{background:radial-gradient(120% 80% at 50% 0%,var(--em-600) 0%,var(--em-900) 55%,var(--em-950) 100%)}
+.s8 .body{position:absolute;left:72px;right:72px;top:230px;text-align:center}
+.s8 h2{font-family:Playfair,serif;font-weight:800;font-size:78px;line-height:1.08}
+.s8 .lead{margin:36px auto 0;font-size:34px;line-height:1.45;opacity:.88;max-width:860px}
+.comment{margin:70px auto 0;width:840px;background:var(--cream);color:var(--ink);border-radius:36px;padding:34px 40px;display:flex;align-items:center;gap:26px;text-align:left;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.comment .av{width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-lt));flex:none}
+.comment small{display:block;font-size:24px;color:#6b7a73;font-weight:600;margin-bottom:4px}
+.comment strong{font-family:Playfair,serif;font-size:72px;font-weight:800;color:var(--em-800);letter-spacing:.02em}
+.comment .send{margin-left:auto;font-size:28px;font-weight:700;color:var(--gold)}
+.pillars3{display:flex;justify-content:center;gap:16px;margin-top:64px}
+.pillars3 span{display:inline-flex;align-items:center;gap:10px;border:1.5px solid rgba(201,165,76,.6);color:var(--gold-lt);border-radius:999px;padding:14px 26px;font-size:26px;font-weight:600;letter-spacing:.04em}
+.pillars3 .ic{width:28px;height:28px}
+</style>
+</head>
+<body>
+
+<!-- 1 · CAPA -->
+<section class="slide s1" id="s1">
+  <div class="photo"></div><div class="shade"></div>
+  <div class="top"><div class="brand">Ecom<span>Boost</span></div><div class="handle">@ecomboost.ace</div></div>
+  <div class="content">
+    <span class="kicker">Case · Estratégia de marca</span>
+    <h1>Como a Nespresso te convenceu a pagar <em style="white-space:nowrap">R$ 600</em> no quilo do café</h1>
+    <div class="sub">— e você nem percebeu.</div>
+  </div>
+  <div class="foot"><div class="dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="credit">Imagens: divulgação Nespresso</div><div class="gold">ARRASTE →</div></div>
+</section>
+
+<!-- 2 · A CONTA -->
+<section class="slide split s2" id="s2">
+  <div class="stage"><img src="img/n_cap_cobre.png" style="width:520px;left:230px;top:30px;transform:rotate(-14deg)"></div>
+  <div class="tag">≈ 5 g</div>
+  <div class="top"><div class="brand">Ecom<span>Boost</span></div><div class="handle">@ecomboost.ace</div></div>
+  <div class="body">
+    <h2>Faça a conta <em>comigo.</em></h2>
+    <div class="calc">
+      <div><i class="ic" data-icon="coffee"></i><span>1 cápsula custa</span><span class="val">≈ R$ 3</span></div>
+      <div><i class="ic" data-icon="scale"></i><span>Dentro dela tem</span><span class="val">≈ 5 g de café</span></div>
+      <div class="hl"><i class="ic" data-icon="tag"></i><span>Preço por quilo</span><span class="val">≈ R$ 600</span></div>
+      <div><i class="ic" data-icon="shopping-basket"></i><span>Café do mercado</span><span class="val">≈ R$ 60/kg</span></div>
+    </div>
+    <div class="punch">Você paga 10x mais. E ainda agradece.</div>
+  </div>
+  <div class="foot"><div class="dots"><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="credit">Imagens: divulgação Nespresso</div><div>02/08</div></div>
+</section>
+
+<!-- 3 · HISTÓRIA -->
+<section class="slide s3 light" id="s3">
+  <div class="year">1986</div>
+  <div class="top"><div class="brand">Ecom<span>Boost</span></div><div class="handle">@ecomboost.ace</div></div>
+  <div class="body">
+    <span class="kicker">A história</span>
+    <h2>Começou como um <em>fracasso.</em></h2>
+    <div class="tl">
+      <div class="bad"><i class="dot"></i><b>1986</b><span>Lançada para escritórios. Quase ninguém comprou.</span></div>
+      <div><i class="dot"></i><b>1989</b><span>Nasce o Clube Nespresso, direto para casa.</span></div>
+      <div><i class="dot"></i><b>2000</b><span>Primeira boutique, em Paris.</span></div>
+      <div><i class="dot"></i><b>2006</b><span>George Clooney: “What else?”</span></div>
+    </div>
+    <div class="turn">A virada: ela <b>parou de vender café</b> e começou a vender <b>um clube.</b></div>
+  </div>
+  <div class="vint"><span>HOJE: NA COZINHA DE CASA</span></div>
+  <div class="foot"><div class="dots"><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div><div class="credit">Imagens: divulgação Nespresso</div><div>03/08</div></div>
+</section>
+
+<!-- 4 · POSICIONAMENTO -->
+<section class="slide split s4" id="s4">
+  <div class="pic"></div>
+  <div class="top"><div class="brand">Ecom<span>Boost</span></div><div class="handle">@ecomboost.ace</div></div>
+  <div class="body">
+    <div class="pillar"><div class="n">P</div><span class="kicker">Pilar 1 · Posicionamento</span></div>
+    <h2>Ela não vende café. Vende <em>pertencimento.</em></h2>
+    <div class="rows">
+      <div class="row"><span class="bub"><i class="ic" data-icon="gem"></i></span><span>Boutiques com cara de <b>joalheria</b></span></div>
+      <div class="row"><span class="bub"><i class="ic" data-icon="star"></i></span><span>Estrelas como rosto: <b>Clooney ontem, Dua Lipa hoje</b></span></div>
+      <div class="row"><span class="bub"><i class="ic" data-icon="key-round"></i></span><span>Você não compra: <b>entra para o clube</b></span></div>
+    </div>
+  </div>
+  <div class="foot"><div class="dots"><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i></div><div class="credit">Imagens: divulgação Nespresso</div><div>04/08</div></div>
+</section>
+
+<!-- 5 · OFERTA -->
+<section class="slide split s5" id="s5">
+  <div class="stage"><img src="img/n_essenza.png" style="width:600px;left:240px;top:30px"><img src="img/n_cap_ouro.png" style="width:150px;left:130px;top:400px;transform:rotate(-20deg)"><img src="img/n_cap_roxa.png" style="width:130px;right:130px;top:430px;transform:rotate(18deg)"></div>
+  <div class="top"><div class="brand">Ecom<span>Boost</span></div><div class="handle">@ecomboost.ace</div></div>
+  <div class="body">
+    <div class="pillar"><div class="n">O</div><span class="kicker">Pilar 2 · Oferta</span></div>
+    <h2>O preço nunca aparece <em>por quilo.</em></h2>
+    <div class="rows">
+      <div class="row"><span class="bub"><i class="ic" data-icon="door-open"></i></span><span>Máquina acessível: <b>a porta de entrada</b></span></div>
+      <div class="row"><span class="bub"><i class="ic" data-icon="repeat"></i></span><span>O lucro está na cápsula, <b>todo mês</b></span></div>
+      <div class="row"><span class="bub"><i class="ic" data-icon="ticket"></i></span><span>R$ 3 por dose <b>parece pouco</b></span></div>
+    </div>
+    <div class="wow">A unidade de preço é uma decisão estratégica.</div>
+  </div>
+  <div class="foot"><div class="dots"><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i></div><div class="credit">Imagens: divulgação Nespresso</div><div>05/08</div></div>
+</section>
+
+<!-- 6 · CONVERSÃO -->
+<section class="slide split s6" id="s6">
+  <div class="pic"></div>
+  <div class="top"><div class="brand">Ecom<span>Boost</span></div><div class="handle">@ecomboost.ace</div></div>
+  <div class="body">
+    <div class="pillar"><div class="n">C</div><span class="kicker">Pilar 3 · Conversão</span></div>
+    <h2>O cliente volta <em>sozinho.</em></h2>
+    <div class="rows">
+      <div class="row"><span class="bub"><i class="ic" data-icon="users"></i></span><span>Venda direta pelo clube, <b>sem intermediário</b></span></div>
+      <div class="row"><span class="bub"><i class="ic" data-icon="history"></i></span><span>Histórico de cada cliente: <b>recompra em poucos cliques</b></span></div>
+      <div class="row"><span class="bub"><i class="ic" data-icon="lock"></i></span><span>Por anos, a máquina <b>só aceitou a cápsula da marca</b></span></div>
+    </div>
+  </div>
+  <div class="foot"><div class="dots"><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i></div><div class="credit">Imagens: divulgação Nespresso</div><div>06/08</div></div>
+</section>
+
+<!-- 7 · FRAMEWORK -->
+<section class="slide s7 light" id="s7">
+  <div class="thumb"></div>
+  <div class="top"><div class="brand">Ecom<span>Boost</span></div><div class="handle">@ecomboost.ace</div></div>
+  <div class="head">
+    <span class="kicker">Framework prático</span>
+    <h2>O que a sua loja <em>copia</em> disso:</h2>
+  </div>
+  <div class="steps">
+    <div class="step"><span class="bub"><i class="ic" data-icon="sparkles"></i></span><div><small>01 · Ritual</small><b>Venda a experiência, não o produto.</b><div class="chips"><span class="n">Nespresso: boutique e clube</span><span class="y">Sua loja: unboxing, embalagem</span></div></div></div>
+    <div class="step"><span class="bub"><i class="ic" data-icon="ruler"></i></span><div><small>02 · Unidade de preço</small><b>Mostre o preço na medida que te favorece.</b><div class="chips"><span class="n">Nespresso: R$ 3 por dose</span><span class="y">Sua loja: por uso, por dia</span></div></div></div>
+    <div class="step"><span class="bub"><i class="ic" data-icon="calendar-check"></i></span><div><small>03 · Recorrência</small><b>Dê um motivo para o cliente voltar.</b><div class="chips"><span class="n">Nespresso: cápsula todo mês</span><span class="y">Sua loja: assinatura, refil, kit</span></div></div></div>
+  </div>
+  <div class="foot"><div class="dots"><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i></div><div class="credit">Imagens: divulgação Nespresso</div><div>07/08</div></div>
+</section>
+
+<!-- 8 · CTA -->
+<section class="slide s8" id="s8">
+  <div class="top"><div class="brand">Ecom<span>Boost</span></div><div class="handle">@ecomboost.ace</div></div>
+  <div class="body">
+    <h2>Qual dos 3 pilares está <em>travando</em> a sua marca?</h2>
+    <div class="pillars3"><span><i class="ic" data-icon="gem"></i>Posicionamento</span><span><i class="ic" data-icon="tag"></i>Oferta</span><span><i class="ic" data-icon="repeat"></i>Conversão</span></div>
+    <p class="lead">Comente a palavra abaixo e receba na DM o <b class="gold">raio-x da sua loja</b> nos três pilares.</p>
+    <div class="comment"><div class="av"></div><div><small>Adicione um comentário…</small><strong>RAIO-X</strong></div><div class="send">Publicar</div></div>
+  </div>
+  <div class="foot"><div class="dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i></div><div>08/08</div></div>
+</section>
+
+</body>
+</html>
